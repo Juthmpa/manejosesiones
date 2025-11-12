@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="manejosesiones">
+    <output-path>$PROJECT_DIR$/out/artifacts/manejosesiones</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="manejosesiones" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="manejosesiones/web/Web" />
+    </root>
+  </artifact>
+</component>
