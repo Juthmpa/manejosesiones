@@ -20,6 +20,8 @@ public class Producto {
     private String categoria;
     // Declaramos la variable para el precio del producto (tipo Double)
     private Double precio;
+    // Declaramos la variable para el stock del producto (tipo int)
+    private int stock;
 
     // Define el constructor vacío de la clase Producto
     public Producto(){}
@@ -31,7 +33,7 @@ public class Producto {
      * @param precio Parámetro que indica el valor de venta del producto
      */
     public Producto(Long idProducto, String nombre,
-                    String categoria, Double precio){
+                    String categoria, Double precio, int stock){
         // Asigna el valor del parámetro 'idProducto' a la variable de instancia 'this.idProducto'
         this.idProducto = idProducto;
         // Asigna el valor del parámetro 'nombre' a la variable de instancia 'this.nombre'
@@ -40,6 +42,7 @@ public class Producto {
         this.categoria = categoria;
         // Asigna el valor del parámetro 'precio' a la variable de instancia 'this.precio'
         this.precio = precio;
+        this.stock = stock;
     }
 
     // Define el métodos getter para obtener el ID del producto
@@ -85,4 +88,12 @@ public class Producto {
         // Asigna el valor del parámetro 'precio' a la variable de instancia 'this.precio'
         this.precio = precio;
     }
+
+    public int getStock() {
+        return stock;
+    }
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
 }
