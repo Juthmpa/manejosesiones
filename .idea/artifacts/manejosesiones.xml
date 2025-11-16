@@ -6,6 +6,19 @@
         <element id="directory" name="classes">
           <element id="module-output" name="manejosesiones" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.itextpdf:layout:7.2.5" />
+          <element id="library" level="project" name="Maven: com.itextpdf:kernel:7.2.5" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.70" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcutil-jdk15on:1.70" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.70" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.36" />
+          <element id="library" level="project" name="Maven: com.itextpdf:io:7.2.5" />
+          <element id="library" level="project" name="Maven: com.itextpdf:commons:7.2.5" />
+          <element id="library" level="project" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:5.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1" />
+        </element>
       </element>
       <element id="javaee-facet-resources" facet="manejosesiones/web/Web" />
     </root>

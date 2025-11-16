@@ -8,7 +8,7 @@
     <artifactId>manejosesiones</artifactId>
     <version>1.0</version>
     <name>manejosesiones</name>
-    <packaging>war</packaging>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,21 +17,19 @@
         <junit.version>5.13.2</junit.version>
     </properties>
 
+    <packaging>war</packaging>
 
     <dependencies>
-        <!-- Dependencias para iText 7 Core (Generación de PDF) -->
         <dependency>
             <groupId>com.itextpdf</groupId>
-            <artifactId>itext7-core</artifactId>
-            <version>7.2.5</version> <!-- Versión recomendada -->
-            <type>pom</type>
+            <artifactId>layout</artifactId>
+            <version>7.2.5</version>
         </dependency>
 
-        <!-- Dependencia iText para i/o (necesaria para las fuentes estándar como Helvetica) -->
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>io</artifactId>
-            <version>7.2.5</version> <!-- Misma versión que el core -->
+            <version>7.2.5</version>
         </dependency>
 
         <!-- ... otras dependencias ... -->
