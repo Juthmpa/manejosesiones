@@ -78,12 +78,12 @@ public class ItemCarro {
         if (o == null || getClass() != o.getClass()) return false;
         ItemCarro itemCarro = (ItemCarro) o;
         // La igualdad se basa en el ID del producto
-        return Objects.equals(producto.getIdProducto(), itemCarro.producto.getIdProducto());
+        return Objects.equals(producto.getId(), itemCarro.producto.getId());
     }
 
     @Override
     public int hashCode() {
         // El hashcode se basa en el ID del producto
-        return Objects.hash(producto.getIdProducto());
+        return Objects.hash(producto.getId());
     }
 }

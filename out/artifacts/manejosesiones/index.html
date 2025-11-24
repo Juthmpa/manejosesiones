@@ -1,23 +1,95 @@
-<!DOCTYPE html>
 <html lang="es">
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manejo de Sesiones</title>
-    <!-- Se agrega el CDN de Bootstrap para que se apliquen los estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        .navbar-brand img {
+            max-height: 30px;
+            width: auto;
+            margin-right: 8px;
+        }
+    </style>
 </head>
-<body class="container mt-5">
+<body>
 
-<h1 class="mb-4 text-primary">Sistema de Manejo de Sesiones</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="resources/logo_sistema.png" alt="Logo Sesiones">
+            Manejo de Sesiones
+        </a>
 
-<!-- Se corrigen los href para que apunten a los recursos correctos -->
-<a href="productos" class="btn btn-info mb-2"> Ver Productos</a>
-<br>
-<a href="login.jsp" class="btn btn-success mb-2"> Login</a>
-<br>
-<a href="logout" class="btn btn-danger mb-2"> Logout</a>
-<br>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a href="carro.jsp" class="btn btn-outline-info me-2">
+                        <img src="resources/icono_productos.png" alt="Icono Productos" class="me-1" style="height: 1.2em; vertical-align: middle;">
+                        Ver Productos (Carrito)
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="login.jsp" class="btn btn-success me-2">
+                        <img src="resources/icono_login.jpg" alt="Icono Login" class="me-1" style="height: 1.2em; vertical-align: middle;">
+                        Login
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout" class="btn btn-danger">
+                        <img src="resources/icono_logout.png" alt="Icono Logout" class="me-1" style="height: 1.2em; vertical-align: middle;">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="text-primary">Bienvenido al Sistema</h1>
+    <p>Utiliza la barra de navegación superior para acceder a las funcionalidades de sesión.</p>
+
+    <div class="mt-4">
+        <h3>Nuestros productos</h3>
+        <p>Si estás pensando en disfrutar de productos de calidad, nosotros te ayudamos!!</p>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="resources/productos.png" alt="Logo Ejemplo" class="d-inline-block align-text-top me-2">
+                    Sistema Compras Online
+                </a>
+                <span class="navbar-text ms-auto">
+                    Versión 1.0
+                </span>
+            </div>
+        </nav>
+
+        <h3 class="mt-4">Ingreso de información</h3>
+        <p> Registro de productos y categorías </p>
+
+        <div class="btn-group mt-2" role="group" aria-label="Botones con iconos">
+
+            <a href="producto/form-producto.jsp" class="btn btn-outline-dark">
+                <img src="resources/icono_carro_compras.png" alt="Icono Carrito" class="me-1" style="height: 1.2em; vertical-align: middle;">
+                Formulario Productos
+            </a>
+
+            <a href="categoria/form-categoria.jsp" class="btn btn-outline-dark">
+                <img src="resources/icono_configuracion.png" alt="Icono Config" class="me-1" style="height: 1.2em; vertical-align: middle;">
+                Formulario Categorías
+            </a>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

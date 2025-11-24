@@ -9,6 +9,7 @@ package com.judith.aplicacionweb.manejosesiones.controllers;
 // Importa la clase ServletException del API de Jakarta Servlet
 import com.judith.aplicacionweb.manejosesiones.services.LoginService;
 import com.judith.aplicacionweb.manejosesiones.services.LoginServiceSessionImplement;
+import com.judith.aplicacionweb.manejosesiones.services.ProductoServiceJdbcImplement;
 import jakarta.servlet.ServletException;
 // Importa la anotación WebServlet para mapear el servlet a una URL
 import jakarta.servlet.annotation.WebServlet;
@@ -19,24 +20,23 @@ import jakarta.servlet.http.HttpServletRequest;
 // Importa la clase HttpServletResponse para manejar la respuesta HTTP
 import jakarta.servlet.http.HttpServletResponse;
 // Importa la clase Cookie para manejar las cookies
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpSession; // Necesario para manejar la sesión
 // Importa la clase Producto del paquete models
 import com.judith.aplicacionweb.manejosesiones.models.Producto;
 // Importa la interfaz ProductoService del paquete services
 import com.judith.aplicacionweb.manejosesiones.services.ProductoService;
 // Importa la implementación ProductoServiceImplement del paquete services
-import com.judith.aplicacionweb.manejosesiones.services.ProductoServiceImplement;
 // Importa la clase IOException para manejar errores de entrada/salida
 import java.io.IOException;
 // Importa la clase PrintWriter para enviar la respuesta al cliente
 import java.io.PrintWriter;
 // Importa la interfaz List de java.util
+import java.sql.Connection;
 import java.util.List;
 // Importa la interfaz Optional de java.util
 import java.util.Optional;
 // Importa la interfaz Arrays de java.util
-import java.util.Arrays;
+
 
 // Mapea este Servlet a la URL "/producto"
 @WebServlet({"/productos.html", "/productos"})
@@ -45,9 +45,11 @@ public class ProductoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
-        // Instancia del servicio de productos
-        ProductoService service = new ProductoServiceImplement();
+        // Traemos la conexión
+        // La clase obtiene la conexión inyectada por el filtro.
+        Connection conn = (Connection) req.getAttribute("conn");
+        // Instancia del servicio de productos, pasando el objeto Connection.
+        ProductoService service = new ProductoServiceJdbcImplement(conn);
         // Obtiene la lista de productos
         List<Producto> productos = service.listar();
 
@@ -73,13 +75,13 @@ public class ProductoServlet extends HttpServlet {
             session.setAttribute("hitCounter", counter);
         }
         // -----------------------------------------------------------
-
+/*
         // Establece tipo de contenido HTML con codificación UTF-8
         resp.setContentType("text/html; charset=UTF-8");
 
         try (PrintWriter out = resp.getWriter()) {
 
-            // Comienza a generar la respuesta HTML con Bootstrap
+            // Generar la respuesta HTML con Bootstrap
             out.println("<!DOCTYPE html>");
             out.println("<html lang='es'>");
             out.println("<head>");
@@ -145,6 +147,9 @@ public class ProductoServlet extends HttpServlet {
             if (usernameOptional.isPresent()) {
                 out.println("<th>PRECIO</th>");
                 out.println("<th>STOCK</th>"); // Nueva columna para mostrar el stock
+                out.println("<th>CODIGO</th>");
+                out.println("<th>F.ELABORACION</th>");
+                out.println("<th>F.CADUCIDAD</th>");
                 out.println("<th>ACCIÓN</th>"); // Columna para el botón de agregar
             }
             out.println("</tr>");
@@ -154,10 +159,9 @@ public class ProductoServlet extends HttpServlet {
             // Itera sobre la lista de productos
             productos.forEach(p->{
                 out.println("<tr>");
-                // Nota: se asume que los getters en Producto son: getId(), getNombre(), getTipo(), getPrecio(), getStock()
-                out.println("<td class='text-center'>" + p.getIdProducto() + "</td>");
-                out.println("<td>" + p.getNombre() + "</td>");
-                out.println("<td>" + p.getCategoria() + "</td>"); // Asume getTipo() para la categoría
+                out.println("<td class='text-center'>" + p.getId() + "</td>");
+                out.println("<td>" + p.getNombreProducto() + "</td>");
+                out.println("<td>" + p.getCategoria() + "</td>");
 
                 if (usernameOptional.isPresent()) {
                     // Muestra el precio formateado a dos decimales
@@ -171,7 +175,7 @@ public class ProductoServlet extends HttpServlet {
                     if (p.getStock() > 0) { // Validación: solo muestra el botón si hay stock
                         out.println("<a href='"
                                 + req.getContextPath()
-                                + "/agregar-carro?id=" + p.getIdProducto() // Enlace al servlet de agregar
+                                + "/agregar-carro?id=" + p.getId() // Enlace al servlet de agregar
                                 + "' class='btn btn-sm btn-primary'>Agregar <i class='fas fa-cart-plus'></i></a>");
                     } else {
                         out.println("<span class='text-danger fw-bold'>Agotado</span>");
@@ -212,6 +216,6 @@ public class ProductoServlet extends HttpServlet {
             out.println("<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'></script>");
             out.println("</body>");
             out.println("</html>");
-        }
+        }*/
     }
 }

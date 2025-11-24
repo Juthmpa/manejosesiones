@@ -96,7 +96,7 @@
             <% for (ItemCarro item : items) { %>
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    <%= item.getProducto().getNombre() %>
+                    <%= item.getProducto().getNombreProducto() %>
                     <%-- USAMOS getCategoria() que está definido en Producto.java --%>
                     <span class="text-xs text-gray-500 block"><%= item.getProducto().getCategoria() %></span>
                 </td>
@@ -113,14 +113,14 @@
                     <div class="flex justify-center space-x-2">
                         <!-- Botón para quitar 1 unidad (Servlet /eliminar-item) -->
                         <%-- Usamos getIdProducto() para obtener el ID --%>
-                        <a href="<%= request.getContextPath() %>/eliminar-item?id=<%= item.getProducto().getIdProducto() %>"
+                        <a href="<%= request.getContextPath() %>/eliminar-item?id=<%= item.getProducto().getId() %>"
                            class="text-red-500 hover:text-red-700 transition duration-150 p-1 rounded-full bg-red-50 hover:bg-red-100"
                            title="Quitar 1 unidad">
                             <i class="fas fa-minus w-4 h-4"></i>
                         </a>
                         <!-- Botón para añadir 1 unidad (Servlet /agregar-carro) -->
                         <%-- Usamos getIdProducto() para obtener el ID --%>
-                        <a href="<%= request.getContextPath() %>/agregar-carro?id=<%= item.getProducto().getIdProducto() %>"
+                        <a href="<%= request.getContextPath() %>/agregar-carro?id=<%= item.getProducto().getId() %>"
                            class="text-green-500 hover:text-green-700 transition duration-150 p-1 rounded-full bg-green-50 hover:bg-green-100"
                            title="Añadir 1 unidad">
                             <i class="fas fa-plus w-4 h-4"></i>

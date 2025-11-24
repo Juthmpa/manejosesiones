@@ -16,7 +16,9 @@ import java.io.IOException;
  */
 @WebServlet("/ver-carro")
 public class VerCarroServlet extends HttpServlet {
-
+    /**
+     * Procesa la petición GET reeenviando al JSP de visualización del carro.
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

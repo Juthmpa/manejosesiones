@@ -35,7 +35,7 @@ public class DetalleCarro {
     public void addItemCarro(ItemCarro nuevoItem) {
         // Busca si el producto ya existe en la lista usando el método correcto getIdProducto()
         Optional<ItemCarro> existingItem = items.stream()
-                .filter(i -> i.getProducto().getIdProducto().equals(nuevoItem.getProducto().getIdProducto()))
+                .filter(i -> i.getProducto().getId().equals(nuevoItem.getProducto().getId()))
                 .findAny();
 
         if (existingItem.isPresent()) {
@@ -54,7 +54,7 @@ public class DetalleCarro {
     public void removeOneItem(Long idProducto) {
         // Busca el item usando el método correcto getIdProducto()
         Optional<ItemCarro> existingItem = items.stream()
-                .filter(i -> i.getProducto().getIdProducto().equals(idProducto))
+                .filter(i -> i.getProducto().getId().equals(idProducto))
                 .findAny();
 
         if (existingItem.isPresent()) {
@@ -72,7 +72,7 @@ public class DetalleCarro {
      * Elimina completamente el item del carrito (quita todas las unidades).
      */
     public void removeItem(Long idProducto) {
-        items.removeIf(i -> i.getProducto().getIdProducto().equals(idProducto));
+        items.removeIf(i -> i.getProducto().getId().equals(idProducto));
     }
 
 

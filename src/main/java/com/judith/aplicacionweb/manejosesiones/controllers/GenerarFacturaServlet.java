@@ -32,6 +32,7 @@ import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.colors.ColorConstants; // Importación corregida
 
+
 /*
  * Autor: Judith Piedra
  * Fecha: 15/11/2025
@@ -139,8 +140,8 @@ public class GenerarFacturaServlet extends HttpServlet {
 
             // Llenar la tabla con los items
             for (ItemCarro item : detalleCarro.getItems()) {
-                table.addCell(new Cell().add(new Paragraph(item.getProducto().getNombre())));
-                table.addCell(new Cell().add(new Paragraph(item.getProducto().getCategoria())));
+                table.addCell(new Cell().add(new Paragraph(item.getProducto().getNombreProducto())));
+                table.addCell(new Cell().add(new Paragraph(item.getProducto().getCategoria().getNombreCategoria())));
                 table.addCell(new Cell().add(new Paragraph(String.valueOf(item.getCantidad()))).setTextAlignment(TextAlignment.CENTER));
                 table.addCell(new Cell().add(new Paragraph(formatDouble(item.getProducto().getPrecio()))).setTextAlignment(TextAlignment.RIGHT));
                 table.addCell(new Cell().add(new Paragraph(formatDouble(item.getSubtotal()))).setTextAlignment(TextAlignment.RIGHT).setBold());

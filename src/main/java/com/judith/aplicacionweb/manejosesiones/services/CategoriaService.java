@@ -1,0 +1,28 @@
+package com.judith.aplicacionweb.manejosesiones.services;
+
+/*
+ * Autor: Judith Piedra
+ * Fecha: 10/11/2025
+ * Descripción: Esta clase denominada ProductoService
+ * es una clase abstracta que sirve como
+ * plantilla que va a utilizar Producto
+ * para el uso en el Servlet
+ */
+// Importa la clase Producto del paquete models
+import com.judith.aplicacionweb.manejosesiones.models.Categoria;
+import com.judith.aplicacionweb.manejosesiones.models.Producto;
+// Importa la interfaz List de java.util
+import java.util.List;
+import java.util.Optional;
+
+// Define la interfaz pública ProductoService
+public interface CategoriaService {
+    // Declara el métodos 'listar' que debe ser implementado
+    // Este métodos no recibe argumentos y retorna una lista de objetos Categoria
+    List<Categoria> listarCategoria();
+
+    // Métodos para buscar un producto por ID, envuelto en Optional para manejar nulls
+    Optional<Categoria> porId(Long id);
+    void guardar(Categoria categoria);
+    void eliminar(Long id);
+}

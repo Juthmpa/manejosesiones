@@ -9,6 +9,7 @@ package com.judith.aplicacionweb.manejosesiones.services;
  * para el uso en el Servlet
  */
 // Importa la clase Producto del paquete models
+import com.judith.aplicacionweb.manejosesiones.models.Categoria;
 import com.judith.aplicacionweb.manejosesiones.models.Producto;
 // Importa la interfaz List de java.util
 import java.util.List;
@@ -22,5 +23,11 @@ public interface ProductoService {
 
     // Métodos para buscar un producto por ID, envuelto en Optional para manejar nulls
     Optional<Producto> porId(Long id);
+    void guardar(Producto producto);
+    void eliminar(Long id);
+    //Implementamos un método para listar una categoría y traer la categoría por id
+
+    List<Categoria> listarCategoria();
+    Optional<Categoria> porIdCategoria(Long id);
 
 }
